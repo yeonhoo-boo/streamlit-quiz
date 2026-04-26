@@ -31,6 +31,7 @@ if 'login_status' not in st.session_state:
 
 if not st.session_state.login_status:
     st.title("🔐 올바른 복약 상식 가이드")
+    st.info("👤 제출자: 부연후 | 학번: 2025404066")  # ← 추가된 줄
     st.write("퀴즈를 풀기 위해 로그인을 진행해주세요.")
     
     with st.container(border=True):
@@ -60,11 +61,10 @@ else:
     with st.form("quiz_form"):
         for i, q in enumerate(quiz_list):
             st.markdown(f"**Q{i+1}. {q['문제']}**")
-            # 💡 index=None을 추가하여 처음 시작 시 아무것도 선택되지 않게 함
             user_ans = st.radio(
                 f"선택 {i}", 
                 ["O", "X"], 
-                key=f"quiz_v1_{i}", # 키를 살짝 바꿔서 이전 기록을 초기화함
+                key=f"quiz_v1_{i}",
                 horizontal=True, 
                 label_visibility="collapsed",
                 index=None
