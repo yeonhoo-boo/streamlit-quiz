@@ -36,11 +36,11 @@ if not st.session_state.login_status:
     
     with st.container(border=True):
         input_id = st.text_input("이름")
-        input_pw = st.text_input("학번", type="password")
+        input_pw = st.text_input("비밀번호", type="password")
         login_btn = st.button("로그인하기", use_container_width=True)
     
     if login_btn:
-        if input_id == "부연후" and input_pw == "2025404066":
+        if input_id == "부연후" and input_pw == "1234":
             st.session_state.login_status = True
             st.success("로그인 성공!")
             time.sleep(0.5)
